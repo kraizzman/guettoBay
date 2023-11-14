@@ -1,0 +1,28 @@
+{% block header %}
+    <nav class="py-2 bg-dark border-bottom">
+        <div class="container d-flex flex-wrap">
+            <ul class="nav me-auto">
+                <li class="nav-item"><a href="#" class="nav-link link-light px-2 active" aria-current="page">Accueil</a></li>
+                <li class="nav-item"><a href="#" class="nav-link link-light px-2">1</a></li>
+                <li class="nav-item"><a href="#" class="nav-link link-light px-2">2</a></li>
+                <li class="nav-item"><a href="#" class="nav-link link-light px-2">3</a></li>
+            </ul>
+            <ul class="nav">
+                <li class="nav-item"><a href="#" class="nav-link link-light px-2">Connexion</a></li>
+                <li class="nav-item"><a href="#" class="nav-link link-light px-2">Inscription</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header class="py-3 mb-4 border-bottom">
+        <div class="container d-flex flex-wrap justify-content-center">
+            <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+                <img src="" alt="test" class="me-1"/>
+                <span class="fs-4">guettoBay</span>
+            </a>
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0" id="searchForm">
+                <input type="search" class="form-control" placeholder="Recherche..." aria-label="Search">
+            </form>
+
+        </div>
+    </header>
+{% endblock %}
