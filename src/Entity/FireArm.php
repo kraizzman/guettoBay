@@ -8,12 +8,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: FireArmRepository::class)]
-class FireArm
+class FireArm extends Weapon
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
 
     #[ORM\Column(length: 255)]
     private ?string $caliber = null;
@@ -22,7 +18,7 @@ class FireArm
     private ?int $capacity = null;
 
     #[ORM\Column]
-    private ?int $fireRate = null;
+    private ?string $fireRate = null;
 
     #[ORM\ManyToMany(targetEntity: AmmunitionsType::class, inversedBy: 'fireArms')]
     private Collection $ammunitions;
@@ -30,11 +26,6 @@ class FireArm
     public function __construct()
     {
         $this->ammunitions = new ArrayCollection();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     public function getCaliber(): ?string

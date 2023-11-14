@@ -1,28 +1,29 @@
 {% block header %}
-    <nav class="py-2 bg-dark border-bottom">
-        <div class="container d-flex flex-wrap">
-            <ul class="nav me-auto">
-                <li class="nav-item"><a href="#" class="nav-link link-light px-2 active" aria-current="page">Accueil</a></li>
-                <li class="nav-item"><a href="#" class="nav-link link-light px-2">1</a></li>
-                <li class="nav-item"><a href="#" class="nav-link link-light px-2">2</a></li>
-                <li class="nav-item"><a href="#" class="nav-link link-light px-2">3</a></li>
-            </ul>
-            <ul class="nav">
-                <li class="nav-item"><a href="#" class="nav-link link-light px-2">Connexion</a></li>
-                <li class="nav-item"><a href="#" class="nav-link link-light px-2">Inscription</a></li>
-            </ul>
-        </div>
-    </nav>
-    <header class="py-3 mb-4 border-bottom">
-        <div class="container d-flex flex-wrap justify-content-center">
-            <a href="{{ path('app_home') }}" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
-                <img src="" alt="test" class="me-1"/>
-                <span class="fs-4">Guetto Bay</span>
-            </a>
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0" id="searchForm">
-                <input type="search" class="form-control" placeholder="Recherche..." aria-label="Search">
-            </form>
+    <header class="p-3 bg-dark text-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="{{ path('app_home') }}" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <img src="{{ asset('assets/images/logo-website.jpg') }}" alt="logo-website" style="height: 50px; width: 50px;">
+                </a>
 
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="{{ path('app_home') }}" class="nav-link px-2 text-secondary">Accueil</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+                </ul>
+
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                    <input type="search" class="form-control form-control-dark" placeholder="Recherche..." aria-label="Search">
+                </form>
+
+                <div class="text-end">
+                    <button type="button" class="btn btn-outline-light me-2">Se connecter</button>
+                    <button type="button" class="btn btn-warning">S'inscrire</button>
+                </div>
+            </div>
         </div>
     </header>
+
 {% endblock %}

@@ -6,23 +6,14 @@ use App\Repository\MeleeWeaponRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: MeleeWeaponRepository::class)]
-class MeleeWeapon
+class MeleeWeapon extends Weapon
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
 
     #[ORM\Column]
     private ?float $length = null;
 
     #[ORM\ManyToOne(inversedBy: 'meleeWeapons')]
     private ?Material $materiel = null;
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getLength(): ?float
     {

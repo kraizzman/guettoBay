@@ -21,20 +21,20 @@ class FireArmRepository extends ServiceEntityRepository
         parent::__construct($registry, FireArm::class);
     }
 
-//    /**
-//     * @return FireArm[] Returns an array of FireArm objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('f')
-//            ->andWhere('f.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('f.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return FireArm[] Returns an array of FireArm objects
+     */
+    public function findAllFireArm($value): array
+    {
+        return $this->createQueryBuilder('f')
+            ->andWhere('f.id = :val')
+            ->setParameter('val', $value)
+            ->orderBy('f.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
 //    public function findOneBySomeField($value): ?FireArm
 //    {
