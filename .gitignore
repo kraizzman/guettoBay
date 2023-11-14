@@ -8,3 +8,5 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+/.idea/dataSources.xml
+/migrations/Version20231114100057.php
