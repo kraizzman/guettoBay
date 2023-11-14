@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CategoryRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
@@ -13,37 +15,60 @@ class Category
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    #[ORM\Column(length: 1)]
+    private ?string $characterCategory = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $description = null;
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Weapon::class)]
+    private Collection $weapons;
+
+    public function __construct()
+    {
+        $this->weapons = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getCharacterCategory(): ?string
     {
-        return $this->name;
+        return $this->characterCategory;
     }
 
-    public function setName(string $name): static
+    public function setCharacterCategory(string $characterCategory): static
     {
-        $this->name = $name;
+        $this->characterCategory = $characterCategory;
 
         return $this;
     }
 
-    public function getDescription(): ?string
+    /**
+     * @return Collection<int, Weapon>
+     */
+    public function getWeapons(): Collection
     {
-        return $this->description;
+        return $this->weapons;
     }
 
-    public function setDescription(string $description): static
+    public function addWeapon(Weapon $weapon): static
     {
-        $this->description = $description;
+        if (!$this->weapons->contains($weapon)) {
+            $this->weapons->add($weapon);
+            $weapon->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeWeapon(Weapon $weapon): static
+    {
+        if ($this->weapons->removeElement($weapon)) {
+            // set the owning side to null (unless already changed)
+            if ($weapon->getCategory() === $this) {
+                $weapon->setCategory(null);
+            }
+        }
 
         return $this;
     }

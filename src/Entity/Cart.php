@@ -15,7 +15,7 @@ class Cart
     private ?int $id = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?User $creator = null;
+    private ?User $owner = null;
 
     #[ORM\Column]
     private ?float $price = null;
@@ -28,14 +28,14 @@ class Cart
         return $this->id;
     }
 
-    public function getCreator(): ?User
+    public function getOwner(): ?User
     {
-        return $this->creator;
+        return $this->owner;
     }
 
-    public function setCreator(?User $creator): static
+    public function setOwner(?User $owner): static
     {
-        $this->creator = $creator;
+        $this->owner = $owner;
 
         return $this;
     }
