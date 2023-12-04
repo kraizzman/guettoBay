@@ -3,13 +3,66 @@
 {% block body %}
     {% include '_header.html.twig' %}
 
-    <div class="container mt-4 text-center">
-        <div class="m-5">
-            <h1>Bienvenue sur GuettoBay</h1>
-            <p>Découvrez notre sélection d'armes'.</p>
+    <div class="container w-80">
+        <div class="container mt-4 text-center">
+            <div class="m-5">
+                <h1>Bienvenue sur GuettoBay</h1>
+                <p>Découvrez notre sélection d'armes en tout genre.</p>
+            </div>
+            <img src="{{ asset('assets/images/weapons-shop.jpg') }}" alt="Armes" class="img-fluid w-50">
         </div>
 
-        <img src="{{ asset('assets/images/weapons-shop.jpg') }}" alt="Armes" class="w-25">
+        <hr class="bg-warning border-2 border-top border-warning my-5"/>
+
+        <div class="d-inline-flex align-items-center">
+            <div>
+                <img src="{{ asset('assets/images/categories.jpg') }}" alt="Catégories d'armes"
+                     class="img-fluid w-75">
+            </div>
+            <div class="w-75">
+                <h2>Parcourez les différentes catégories d'armes...</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper dapibus aliquet. Morbi est
+                    nunc, mattis id massa at, cursus sagittis odio. In sit amet hendrerit mi, at fermentum ante. Nullam
+                    euismod mi mi, a feugiat sapien hendrerit ut. Donec vitae libero a lacus maximus venenatis nec in
+                    ligula. Nam finibus diam quis dui fermentum, ut scelerisque erat commodo. Etiam maximus risus
+                    tempus,
+                    faucibus ex ut, pulvinar tellus. Ut fermentum interdum tortor, lacinia maximus justo interdum ac.
+                    Suspendisse auctor diam vitae neque aliquet pharetra.</p>
+            </div>
+        </div>
+
+        <div class="d-inline-flex my-3 align-items-center">
+            <div class="w-75">
+                <h2>Recherchez vos armes de coeur ...</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper dapibus aliquet. Morbi est
+                    nunc, mattis id massa at, cursus sagittis odio. In sit amet hendrerit mi, at fermentum ante. Nullam
+                    euismod mi mi, a feugiat sapien hendrerit ut. Donec vitae libero a lacus maximus venenatis nec in
+                    ligula. Nam finibus diam quis dui fermentum, ut scelerisque erat commodo. Etiam maximus risus
+                    tempus,
+                    faucibus ex ut, pulvinar tellus. Ut fermentum interdum tortor, lacinia maximus justo interdum ac.
+                    Suspendisse auctor diam vitae neque aliquet pharetra.</p>
+            </div>
+            <div>
+                <img src="{{ asset('assets/images/choisir-son-arme.jpg') }}" alt="Choix d'armes"
+                     class="img-fluid w-75 ms-5">
+            </div>
+        </div>
+
+        <div class="d-inline-flex align-items-center">
+            <div>
+                <img src="{{ asset('assets/images/ajout-panier.jpg') }}" alt="Séléction" class="img-fluid w-75">
+            </div>
+            <div class="w-75">
+                <h2>... et ajouter vos armes de choix dans vos favoris ou dans votre panier !</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper dapibus aliquet. Morbi est
+                    nunc, mattis id massa at, cursus sagittis odio. In sit amet hendrerit mi, at fermentum ante. Nullam
+                    euismod mi mi, a feugiat sapien hendrerit ut. Donec vitae libero a lacus maximus venenatis nec in
+                    ligula. Nam finibus diam quis dui fermentum, ut scelerisque erat commodo. Etiam maximus risus
+                    tempus,
+                    faucibus ex ut, pulvinar tellus. Ut fermentum interdum tortor, lacinia maximus justo interdum ac.
+                    Suspendisse auctor diam vitae neque aliquet pharetra.</p>
+            </div>
+        </div>
     </div>
 
     {% include '_footer.html.twig' %}
