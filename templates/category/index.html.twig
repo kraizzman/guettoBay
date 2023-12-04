@@ -1,0 +1,21 @@
+{% extends '_base.html.twig' %}
+
+{% block body %}
+    {% include '_header.html.twig' %}
+
+    <div class="container mt-4 text-center">
+        <div class="row align-items-start justify-content-center">
+            {% for weapon in listWeapons %}
+                <div class="shadow col-3 img-thumbnail rounded p-2 m-1">
+                    <img src="{{ asset('assets/images/FN_FNC.jpg') }}" alt="image weapon test" class="img-thumbnail">
+                    <p>Name : {{ weapon }}</p>
+                    <p>Category : Weapon (test)</p>
+                    <p>Price : 0€</p>
+                    <button type="button" class="btn btn-white btn-outline-dark">Ajouter au panier</button>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% include '_footer.html.twig' %}
+{% endblock %}
