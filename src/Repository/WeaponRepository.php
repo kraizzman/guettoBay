@@ -21,28 +21,54 @@ class WeaponRepository extends ServiceEntityRepository
         parent::__construct($registry, Weapon::class);
     }
 
-//    /**
-//     * @return Weapon[] Returns an array of Weapon objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('w')
-//            ->andWhere('w.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('w.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function findByCategory($categoryId)
+    {
+        return $this->createQueryBuilder('w')
+            ->innerJoin('w.category', 'c')
+            ->select('w.name', 'w.picture', 'w.description', 'w.inStock', 'w.price')
+            ->andWhere('c.id = :categoryId')
+            ->setParameter('categoryId', $categoryId)
+            ->getQuery()
+            ->getResult();
+    }
 
-//    public function findOneBySomeField($value): ?Weapon
-//    {
-//        return $this->createQueryBuilder('w')
-//            ->andWhere('w.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function findBySearchCriteria($category = null, $name = null, $minPrice = null, $maxPrice = null)
+    {
+        $qb = $this->createQueryBuilder('w');
+
+        if ($category !== null) {
+            $categoryId = $this->getCategoryIdFromLetter($category);
+            if ($categoryId !== null) {
+                $qb->andWhere('w.category = :categoryId')
+                    ->setParameter('categoryId', $categoryId);
+            }
+        }
+        if ($name !== null) {
+            $qb->andWhere('w.name = :name')
+                ->setParameter('name', $name);
+        }
+        if ($minPrice !== null) {
+            $qb->andWhere('w.price >= :minPrice')
+                ->setParameter('minPrice', $minPrice);
+        }
+        if ($maxPrice !== null) {
+            $qb->andWhere('w.price <= :maxPrice')
+                ->setParameter('maxPrice', $maxPrice);
+        }
+
+        return $qb->getQuery()->getResult();
+    }
+
+
+    private function getCategoryIdFromLetter($letter): ?int
+    {
+        $categoryMap = [
+            'A' => 1,
+            'B' => 2,
+            'C' => 3,
+            'D' => 4,
+        ];
+
+        return $categoryMap[$letter] ?? null;
+    }
 }

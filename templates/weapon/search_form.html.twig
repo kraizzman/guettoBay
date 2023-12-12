@@ -1,0 +1,35 @@
+{% extends '_base.html.twig' %}
+
+{% block title %}Recherchez votre arme{% endblock %}
+
+{% block body %}
+    {% include '_header.html.twig' %}
+    <div class="container mt-5">
+        <h1>Recherchez votre arme</h1>
+        <form action="{{ path('app_weapons_search') }}" method="post">
+            <div class="mb-3">
+                <label for="category" class="form-label">Catégorie :</label>
+                <select id="category" name="category" class="form-control">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="weaponName" class="form-label">Nom de l'arme :</label>
+                <input type="text" id="weaponName" name="weaponName" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="minPrice" class="form-label">Prix minimum :</label>
+                <input type="number" id="minPrice" name="minPrice" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="maxPrice" class="form-label">Prix maximum :</label>
+                <input type="number" id="maxPrice" name="maxPrice" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Rechercher</button>
+        </form>
+    </div>
+    {% include '_footer.html.twig' %}
+{% endblock %}

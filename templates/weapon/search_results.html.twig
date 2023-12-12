@@ -1,0 +1,32 @@
+{% extends '_base.html.twig' %}
+
+{% block title %}Résultats de la recherche{% endblock %}
+
+{% block body %}
+    {% include '_header.html.twig' %}
+    <div class="container mt-5">
+        <h1>Résultats de la recherche</h1>
+        {% if weapons is not empty %}
+            <div class="row">
+                {% for weapon in weapons %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-img-container">
+                                <img class="card-img-top" src="{{ asset(weapon.picture) }}" alt="{{ weapon.name }}">
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">{{ weapon.name }}</h5>
+                                <p class="card-text flex-grow-1">{{ weapon.description }}</p>
+                                <p class="card-text">En stock : {{ weapon.inStock }}</p>
+                                <p class="card-text">Prix : {{ weapon.price }} €</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>Aucune arme trouvée.</p>
+        {% endif %}
+    </div>
+    {% include '_footer.html.twig' %}
+{% endblock %}
